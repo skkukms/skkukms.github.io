@@ -1,0 +1,19 @@
+name: notify_push
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: 
+      FIB_INPUT: 10
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Run Python Script
+      run: |
+        python3 .github/scripts/notifypush.py
